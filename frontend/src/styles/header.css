@@ -1,0 +1,254 @@
+/* ============================================================
+   فريق عبري الخيري — شريط التنقل العلوي
+   تصميم بسيط وكلاسيكي متناسق مع هوية الموقع (عاجي/أخضر/ذهبي)
+   ============================================================ */
+
+/* ---------- الهيدر الرئيسي ---------- */
+.heritage-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background: #fffbf3;
+  border-bottom: 2px solid #c9a32f;
+  box-shadow: 0 2px 12px rgba(13, 47, 30, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+.heritage-header.scrolled {
+  box-shadow: 0 6px 22px rgba(13, 47, 30, 0.12);
+}
+
+.heritage-header .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  transition: padding 0.3s ease;
+}
+
+/* ---------- الشعار ---------- */
+.heritage-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.heritage-brand .brand-logo-wrap {
+  display: flex;
+  align-items: center;
+}
+.heritage-brand .brand-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 1.5px solid #c9a32f;
+  background: #fff;
+  padding: 2px;
+  transition: transform 0.3s ease;
+}
+.heritage-brand:hover .brand-logo { transform: scale(1.04); }
+.heritage-brand .brand-name {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #14532d;
+  line-height: 1.2;
+}
+.heritage-brand .brand-sub {
+  display: block;
+  font-size: 0.72rem;
+  color: #a07c1e;
+  letter-spacing: 0.4px;
+}
+
+/* ---------- القائمة (سطح المكتب) ---------- */
+.heritage-nav { list-style: none; margin: 0; padding: 0; }
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+.desktop-nav .nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #3c4a40;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+.desktop-nav .nav-link i {
+  font-size: 0.85rem;
+  color: #b9932f;
+  transition: color 0.25s ease;
+}
+.desktop-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: #c9a32f;
+  transition: width 0.3s ease;
+}
+.desktop-nav .nav-link:hover,
+.desktop-nav .nav-link.active { color: #14532d; }
+.desktop-nav .nav-link:hover::after,
+.desktop-nav .nav-link.active::after { width: 60%; }
+
+/* ---------- زر التبرع ---------- */
+.donate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.3rem;
+  background: linear-gradient(135deg, #14532d, #1e7b4f);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid #c9a32f;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(13, 47, 30, 0.18);
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease;
+}
+.donate-btn i { color: #c9a32f; font-size: 1rem; }
+.donate-btn:hover {
+  background: linear-gradient(135deg, #9a7b1c, #c9a32f);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(201, 163, 47, 0.35);
+}
+.donate-desktop { display: inline-flex; }
+.donate-mobile { display: none; }
+
+/* ---------- زر فتح القائمة (جوال) ---------- */
+.heritage-toggler {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: 1.5px solid #9a7b1c;
+  border-radius: 6px;
+  padding: 0.5rem 0.65rem;
+  align-items: center;
+  cursor: pointer;
+}
+.heritage-toggler span {
+  display: block;
+  width: 21px;
+  height: 2px;
+  background: #9a7b1c;
+  border-radius: 2px;
+}
+
+.mobile-nav,
+.heritage-toggler-close { display: none; }
+
+/* ---------- حالة التمرير ---------- */
+.heritage-header.scrolled .header-inner { padding: 0.4rem 0; }
+.heritage-header.scrolled .brand-logo { width: 44px; height: 44px; }
+.heritage-header.scrolled .brand-name { font-size: 1.05rem; }
+.heritage-header.scrolled .donate-btn { padding: 0.45rem 1.1rem; font-size: 0.88rem; }
+
+/* ============================================================
+   Responsive — جوال / تابلت
+   ============================================================ */
+@media (max-width: 991px) {
+  .desktop-nav,
+  .donate-desktop { display: none !important; }
+  .heritage-toggler { display: inline-flex; }
+  .donate-mobile { display: inline-flex; }
+  .heritage-brand .brand-name { font-size: 1rem; }
+
+  .mobile-nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(320px, 88vw);
+    background: #0d2f1e;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 4.5rem 1.4rem 2rem;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.25);
+    z-index: 1050;
+    overflow-y: auto;
+  }
+  .mobile-nav.open { transform: translateX(0); }
+  .mobile-nav .nav-item { width: 100%; }
+  .mobile-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0.85rem 0.2rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fdf6e3;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    transition: color 0.25s ease, padding-right 0.25s ease;
+  }
+  .mobile-nav .nav-link i { color: #c9a32f; }
+  .mobile-nav .nav-link:hover,
+  .mobile-nav .nav-link.active {
+    color: #c9a32f;
+    padding-right: 0.6rem;
+  }
+  .mobile-nav .donate-mobile {
+    justify-content: center;
+    width: 100%;
+    margin-top: 1.2rem;
+    background: linear-gradient(135deg, #c9a32f, #9a7b1c);
+  }
+  .heritage-toggler-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: 1.5px solid #c9a32f;
+    color: #c9a32f;
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 575px) {
+  .heritage-brand .brand-sub { display: none; }
+  .heritage-brand .brand-name { font-size: 0.95rem; }
+  .donate-mobile { padding: 0.5rem 1rem; font-size: 0.85rem; }
+}
+
+/* ---------- تقليل الحركة ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .heritage-nav .nav-link,
+  .nav-link::after,
+  .donate-btn,
+  .heritage-brand .brand-logo,
+  .heritage-header,
+  .heritage-header .header-inner {
+    transition: none !important;
+    transform: none;
+  }
+}

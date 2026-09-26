@@ -1,0 +1,121 @@
+// ============================================================
+// منصة الخير — تخصيص ألوان Bootstrap (أخضر + ذهبي)
+// عصري كلاسيكي — يتم تجميعه بواسطة Vite (sass-embedded)
+// ============================================================
+
+// ----- لوحة الألوان الأساسية -----
+$brand-green: #1e7b4f;         // الأخضر الأساسي (زمردي عميق)
+$brand-green-dark: #14532d;    // الأخضر الغامق
+$brand-green-light: #e9f5ee;   // الأخضر الفاتح جداً (خلفيات)
+$brand-gold: #c9a32f;          // الذهبي الأساسي
+$brand-gold-dark: #9a7b1c;     // الذهبي الغامق
+$brand-gold-light: #fbf5e4;    // الذهبي الفاتح
+$brand-cream: #fbf7f0;         // خلفية كريمية كلاسيكية
+$brand-ink: #1c1c1c;           // أسود أنيق
+
+// ============================================================
+// تجاوز متغيرات Bootstrap (قبل استيراد Bootstrap)
+// ============================================================
+$primary: $brand-green;
+$secondary: #5c6b60;            // رمادي-أخضر هادئ
+$success: $brand-green;
+$info: #2e9f7d;
+$warning: $brand-gold;
+$danger: #c0392b;
+$light: $brand-cream;
+$dark: $brand-ink;
+
+// حواف أنيقة
+$border-radius: 0.5rem;
+$border-radius-sm: 0.35rem;
+$border-radius-lg: 0.9rem;
+$border-radius-pill: 50rem;
+
+$btn-border-radius: 0.6rem;
+$btn-border-radius-lg: 0.7rem;
+$btn-border-radius-sm: 0.45rem;
+
+$card-border-radius: 1rem;
+$card-inner-border-radius: calc(#{$card-border-radius} - 1px);
+
+$input-border-radius: 0.6rem;
+$input-border-radius-lg: 0.7rem;
+$form-select-border-radius: $input-border-radius;
+
+// الظلال
+$box-shadow: 0 0.5rem 1.5rem rgba(20, 83, 45, 0.08);
+$box-shadow-lg: 0 1rem 3rem rgba(20, 83, 45, 0.12);
+
+// الروابط
+$link-color: $brand-green-dark;
+$link-hover-color: darken($brand-green-dark, 8%);
+
+// تركيز الحقول
+$input-focus-border-color: $brand-gold;
+$input-focus-box-shadow: 0 0 0 0.25rem rgba(201, 163, 47, 0.18);
+$form-select-focus-border-color: $brand-gold;
+$form-select-focus-box-shadow: $input-focus-box-shadow;
+
+// أزرار
+$btn-font-weight: 600;
+$btn-box-shadow: 0 0.25rem 0.75rem rgba(20, 83, 45, 0.15);
+
+// شارات
+$badge-padding-y: 0.4em;
+$badge-padding-x: 0.7em;
+
+// طاولات
+$table-striped-bg: $brand-green-light;
+$table-hover-bg: rgba(201, 163, 47, 0.07);
+
+// شريط التنقل
+$navbar-dark-color: rgba(255, 255, 255, 0.85);
+$navbar-dark-hover-color: $brand-gold;
+$navbar-dark-active-color: #fff;
+
+// Pagination
+$pagination-color: $brand-green-dark;
+$pagination-hover-color: #fff;
+$pagination-hover-bg: $brand-green;
+$pagination-hover-border-color: $brand-green;
+$pagination-active-bg: $brand-green;
+$pagination-active-border-color: $brand-green;
+$pagination-focus-box-shadow: $input-focus-box-shadow;
+
+// Progress bars
+$progress-height: 0.7rem;
+$progress-border-radius: 10px;
+
+// ============================================================
+// استيراد Bootstrap (سيستخدم المتغيرات المعدّلة أعلاه)
+// ============================================================
+@import "bootstrap/scss/bootstrap";
+
+// ============================================================
+// امتدادات إضافية للتصميم العصري الكلاسيكي
+// ============================================================
+
+// تدرج ذهبي لأشرطة التقدم
+.progress-bar {
+  background-image: linear-gradient(90deg, $brand-gold, $brand-gold-dark);
+}
+
+// حدود ذهبية خفيفة للبطاقات
+.card {
+  border-color: rgba(201, 163, 47, 0.25);
+}
+.card-header {
+  background-color: rgba(233, 245, 238, 0.6);
+  color: $brand-green-dark;
+  font-weight: 600;
+}
+
+// فئات لونية مخصصة
+.text-gold { color: $brand-gold; }
+.bg-gold { background-color: $brand-gold; }
+.text-gold-dark { color: $brand-gold-dark; }
+.bg-gold-light { background-color: $brand-gold-light; }
+.bg-green-light { background-color: $brand-green-light; }
+.text-brand-green { color: $brand-green; }
+.bg-brand-green { background-color: $brand-green; }
+.text-brand-green-dark { color: $brand-green-dark; }

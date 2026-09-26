@@ -1,0 +1,430 @@
+/* ============================================================
+   منصة الخير — المظهر المخصص (أخضر + ذهبي) عصري كلاسيكي
+   يعتمد على متغيرات Bootstrap المُعدّلة في custom-bootstrap.scss
+   ============================================================ */
+
+:root {
+  --brand-green: #1e7b4f;
+  --brand-green-dark: #14532d;
+  --brand-green-light: #e9f5ee;
+  --brand-gold: #c9a32f;
+  --brand-gold-dark: #9a7b1c;
+  --brand-gold-light: #fbf5e4;
+  --brand-cream: #fbf7f0;
+  --brand-ink: #1c1c1c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', 'Tahoma', system-ui, -apple-system, sans-serif;
+  background-color: var(--brand-cream);
+  color: #2b2b2b;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ============ ألوان مساعدة ============ */
+.text-brand-green { color: var(--brand-green); }
+.text-brand-gold { color: var(--brand-gold); }
+.text-brand-gold-dark { color: var(--brand-gold-dark); }
+.bg-brand-green { background-color: var(--brand-green); }
+.bg-brand-gold { background-color: var(--brand-gold); }
+.bg-brand-cream { background-color: var(--brand-cream); }
+
+.gold-gradient-text {
+  background: linear-gradient(90deg, var(--brand-gold-dark), var(--brand-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ============ Navbar ============ */
+.navbar-brand {
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+.navbar-brand .brand-icon {
+  color: var(--brand-gold);
+}
+
+/* ============ Semantics: أزرار ذهبية مميزة ============ */
+.btn-gold {
+  background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-gold-dark) 100%);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  box-shadow: 0 0.4rem 1rem rgba(154, 123, 28, 0.25);
+  transition: all 0.25s ease;
+}
+.btn-gold:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0.7rem 1.6rem rgba(154, 123, 28, 0.35);
+}
+.btn-outline-gold {
+  border: 1.5px solid var(--brand-gold);
+  color: var(--brand-gold-dark);
+  font-weight: 600;
+}
+.btn-outline-gold:hover {
+  background: var(--brand-gold);
+  color: #fff;
+}
+
+/* ============ بطاقات الحالات والأخبار والفعاليات ============ */
+.case-image, .news-image, .event-image {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.55rem 0.55rem 0 0;
+}
+.case-image-placeholder, .event-image-placeholder {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--brand-green-light), #f0e8d4);
+  color: var(--brand-green);
+  font-size: 2.5rem;
+}
+
+/* ============ عناوين الأقسام ============ */
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  width: 56px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--brand-green), var(--brand-gold));
+}
+
+/* ============ بطاقات إحصاء (عام) ============ */
+.stat-card {
+  background: #fff;
+  border: 1px solid rgba(201, 163, 47, 0.2);
+  border-radius: 1rem;
+  padding: 1.4rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.8rem 1.8rem rgba(20, 83, 45, 0.1);
+}
+.stat-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.stat-value {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--brand-green-dark);
+}
+.stat-label {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+/* ============ Empty state ============ */
+.empty-state i {
+  opacity: 0.4;
+  color: var(--brand-gold);
+}
+
+/* ============ Admin layout ============ */
+.admin-shell {
+  background-color: #f5f6fa;
+}
+.admin-sidebar-wrap {
+  width: 260px;
+  flex-shrink: 0;
+}
+@media (max-width: 991px) {
+  .admin-sidebar-wrap {
+    position: fixed;
+    z-index: 1050;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin-right: -260px;
+    transition: margin 0.3s ease;
+  }
+  .admin-sidebar-wrap.open { margin-right: 0; }
+}
+.admin-sidebar {
+  background: linear-gradient(180deg, var(--brand-green-dark) 0%, #0d2f1e 100%);
+  color: #fff;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+.sidebar-brand {
+  padding: 1.1rem 1.25rem;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sidebar-user { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.avatar-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-gold), var(--brand-gold-dark));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.sidebar-section-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 0.6rem 0.85rem;
+}
+.sidebar-link {
+  color: rgba(255, 255, 255, 0.82);
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+  transition: all 0.2s ease;
+}
+.sidebar-link:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+.sidebar-link.active {
+  background: linear-gradient(135deg, var(--brand-gold), var(--brand-gold-dark));
+  color: #fff;
+  box-shadow: 0 0.3rem 0.8rem rgba(154, 123, 28, 0.35);
+}
+
+.admin-topbar {
+  background: #fff;
+  border-bottom: 1px solid #e9ecef;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+/* ============ Footer ============ */
+footer.bg-dark,
+footer.bg-green-dark {
+  background: linear-gradient(180deg, var(--brand-green-dark) 0%, #0c2919 100%) !important;
+  color: rgba(255, 255, 255, 0.85);
+}
+footer a { transition: color 0.2s ease; }
+footer a:hover { color: var(--brand-gold) !important; }
+.footer-top-border {
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-green), var(--brand-gold), var(--brand-green));
+}
+
+/* ============ محتوى الأخبار ============ */
+.news-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+.news-content p { line-height: 1.95; }
+
+/* ============ إضافات صغيرة ============ */
+.table thead th { color: var(--brand-green-dark); font-weight: 600; }
+.pagination .page-link { color: var(--brand-green-dark); }
+.progress { background-color: rgba(20, 83, 45, 0.12); }
+
+/* ============================================================
+   Hero — الصفحة الرئيسية (خلفية BK.PNG)
+   تصميم حديث، نظيف ومتناسق مع هوية الموقع
+   ============================================================ */
+.home-hero {
+  position: relative;
+  min-height: min(86vh, 720px);
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* خلفية الصورة */
+.home-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+  animation: heroZoom 20s ease-in-out infinite alternate;
+}
+
+/* طبقة تعتيم أخضر داكن لضمان وضوح النص فوق الصورة */
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 50% 22%, rgba(201, 163, 47, 0.16), transparent 55%),
+    linear-gradient(180deg,
+      rgba(8, 34, 21, 0.82) 0%,
+      rgba(13, 47, 30, 0.76) 48%,
+      rgba(10, 36, 22, 0.9) 100%);
+}
+
+.home-hero-inner {
+  position: relative;
+  z-index: 2;
+  padding: 5.5rem 1rem 6rem;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+/* شارة علوية */
+.home-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 1.2rem;
+  border: 1px solid rgba(201, 163, 47, 0.55);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--brand-gold);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  font-size: 0.95rem;
+  margin-bottom: 1.4rem;
+}
+.home-hero-eyebrow i { color: var(--brand-gold); }
+
+/* العنوان */
+.home-hero-title {
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.4;
+  margin-inline: auto;
+  max-width: 22ch;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.25);
+}
+.hero-highlight {
+  background: linear-gradient(90deg, #e8cd7a, #c9a32f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* فاصل زخرفي */
+.home-hero-ornament {
+  width: 90px;
+  height: 3px;
+  margin: 1.25rem auto;
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
+}
+
+/* الوصف */
+.home-hero-text {
+  font-size: clamp(1.05rem, 2.4vw, 1.28rem);
+  line-height: 1.95;
+  color: rgba(255, 255, 255, 0.94);
+  margin-inline: auto;
+  max-width: 640px;
+  margin-bottom: 2.2rem;
+}
+
+/* الأزرار */
+.home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+}
+.home-hero-actions .btn { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.home-hero-actions .btn:hover { transform: translateY(-3px); }
+
+/* حركة ظهور بسيطة وراقية */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+.fade-up.a1 { animation-delay: 0.05s; }
+.fade-up.a2 { animation-delay: 0.18s; }
+.fade-up.a3 { animation-delay: 0.32s; }
+.fade-up.a4 { animation-delay: 0.46s; }
+
+@keyframes heroZoom {
+  from { transform: scale(1.02); }
+  to   { transform: scale(1.1); }
+}
+
+/* ============================================================
+   Stats — إحصاءات الصفحة الرئيسية
+   ============================================================ */
+.section-stats {
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+  margin-top: -2.8rem;
+  position: relative;
+  z-index: 3;
+}
+.section-stats .stat-card {
+  background: #fff;
+  border: 1px solid rgba(201, 163, 47, 0.22);
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 0.9rem 2rem rgba(13, 47, 30, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.section-stats .stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1.2rem 2.4rem rgba(13, 47, 30, 0.16);
+}
+
+/* إجابات متجاوبة للـ Hero والإحصاءات */
+@media (max-width: 767px) {
+  .home-hero { min-height: auto; }
+  .home-hero-inner { padding: 4rem 1rem 5.2rem; }
+  .section-stats { margin-top: 0; padding-top: 2.4rem; }
+}
+
+/* تقليل الحركة لمن يفضّلون ذلك */
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-bg,
+  .fade-up,
+  .home-hero-actions .btn,
+  .section-stats .stat-card {
+    animation: none !important;
+    transform: none;
+    transition: none;
+  }
+  .fade-up { opacity: 1; }
+}
